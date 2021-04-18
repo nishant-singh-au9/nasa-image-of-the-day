@@ -1,4 +1,48 @@
-.App {
+body {
   font-family: sans-serif;
-  text-align: center;
+}
+
+.hd__image {
+  width: 100%;
+  height: auto;
+}
+
+.loader__svg {
+  margin-top: 100px;
+}
+
+.title {
+  padding: 20px;
+  text-decoration: underline;
+}
+
+.details {
+  background-color: #fffacd;
+}
+
+.data__title {
+  margin-top: 10px;
+  background-color: #2f4f4f;
+  color: white;
+  padding: 5px;
+}
+
+.search__div {
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.search__div button {
+  margin: 5px;
+}
+
+.date__search__p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.err {
+  color: red;
+  margin-bottom: 0;
 }
