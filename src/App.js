@@ -7,53 +7,41 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      date: "",
       data: "",
       err: ""
     };
   }
 
   dateChangeHandler = (e) => {
-    this.setState({ date: e.target.value, err: "" });
-    console.log(process.env);
-  };
-
-  submitHandler = () => {
-    if (!this.state.date) {
-      this.setState({ err: "Select a Valid date" });
-    } else {
-      this.setState({ data: "" });
-      fetch(`${url}&date=${this.state.date}`, { method: "GET" })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.code) {
-            this.setState({ err: data.msg });
-          } else {
-            this.setState({ data });
-          }
-        });
-    }
+    this.setState({ err: "" });
+    this.setState({ data: "" });
+    fetch(`${url}&date=${e.target.value}`, { method: "GET" })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.code) {
+          this.setState({ err: data.msg });
+        } else {
+          this.setState({ data });
+        }
+      });
   };
 
   render() {
     return (
       <>
         <center>
-          <h1 className="title">NASA Image of the DAY</h1>
+          <h1 className="title">NASA IMAGE OF THE DAY</h1>
         </center>
         <center>
           <div>
             <div className="search__div">
-              <p className="date__search__p">Search by date: </p>
               <p className="err">{this.state.err}</p>
+              <p className="date__search__p">Search by date: </p>
               <input
                 type="date"
                 value={this.state.date}
                 onChange={this.dateChangeHandler}
               />
-              <button className="btn btn-primary" onClick={this.submitHandler}>
-                Search
-              </button>
             </div>
           </div>
         </center>
