@@ -15,7 +15,7 @@ class App extends React.Component {
 
   dateChangeHandler = (e) => {
     this.setState({ date: e.target.value, err: "" });
-    console.log(this.state.date);
+    console.log(process.env);
   };
 
   submitHandler = () => {
