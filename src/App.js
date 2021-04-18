@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 import RenderData from "./RenderData";
-const url = `https://api.nasa.gov/planetary/apod?api_key=${process.env.API_KEY}`;
+const url = `https://api.nasa.gov/planetary/apod?api_key=5KfKZwfQX4jSM0mUN2mG82a9t0H0YpAtbUJRdwvv`;
 
 class App extends React.Component {
   constructor() {

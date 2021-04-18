@@ -1,7 +1,7 @@
 import React from "react";
 import Loader from "./Loader.svg";
 
-const renderImage = (imageUrl) => {
+const renderImage = (imageUrl, videoUrl) => {
   if (imageUrl) {
     return (
       <>
@@ -11,16 +11,12 @@ const renderImage = (imageUrl) => {
   } else {
     return (
       <>
-        <center>
-          <h2>
-            <span role="img">&#128553;</span>
-            Image not Available for this day, Try searching for another date
-            <hr />
-            <span role="img">&#128558;</span>
-            You can read the description though
-          </h2>
-        </center>
-        ;
+        <iframe
+          width="100%"
+          height="315"
+          title={videoUrl}
+          src={videoUrl}
+        ></iframe>
       </>
     );
   }
@@ -32,7 +28,9 @@ const RenderData = (props) => {
       <>
         <div className="container">
           <div className="row">
-            <div className="col-md-6">{renderImage(props.data.hdurl)}</div>
+            <div className="col-md-6">
+              {renderImage(props.data.hdurl, props.data.url)}
+            </div>
             <div className="col-md-6 details">
               <center>
                 <h3 className="data__title">{props.data.title}</h3>
